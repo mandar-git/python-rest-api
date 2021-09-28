@@ -15,8 +15,9 @@ ubuntu       18.04      54919e10a95d   4 weeks ago     63.1MB
 ```
 
 ### Run docker image as a container ###
-
+```
 docker run -p 5000:5000 flask-app
+```
 
 ```
  * Serving Flask app "app" (lazy loading)
