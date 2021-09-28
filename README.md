@@ -4,18 +4,19 @@ A sample python flask rest API with docker
 
 
 code()
-### Heading 3 ###
+### Build the docker image from Dockerfile ###
 docker build -t flask-app . 
 
-### Heading 3 ##
+### Check Docker images on host ##
 docker images
 REPOSITORY   TAG        IMAGE ID       CREATED         SIZE
 flask-app    latest     6204c64ac214   9 minutes ago   152MB
 ubuntu       18.04      54919e10a95d   4 weeks ago     63.1MB
-### Heading 3 ###
+
+
+### Run docker image as a container ###
 
 docker run -p 5000:5000 flask-app
-
 
 
  * Serving Flask app "app" (lazy loading)
@@ -28,8 +29,9 @@ docker run -p 5000:5000 flask-app
 2021-09-28 15:26:54,557 INFO werkzeug MainThread :  * Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
 
 
-
+```javascript
 docker run -d -p 5000:5000 flask-app
+```
 
 docker ps
 CONTAINER ID   IMAGE       COMMAND             CREATED         STATUS         PORTS                                       NAMES
