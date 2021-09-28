@@ -29,46 +29,43 @@ ubuntu       18.04      54919e10a95d   4 weeks ago     63.1MB
 2021-09-28 15:26:54,557 INFO werkzeug MainThread :  * Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
 ```
 
-```javascript
-docker run -d -p 5000:5000 flask-app
-```
+`docker run -d -p 5000:5000 flask-app`
 
-docker ps
+`docker ps`
 CONTAINER ID   IMAGE       COMMAND             CREATED         STATUS         PORTS                                       NAMES
 ea1efbaf9e2f   flask-app   "python ./app.py"   9 minutes ago   Up 9 minutes   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   suspicious_wescoff
 
 
-```javascript
-curl http://localhost:5000
+`curl http://localhost:5000`
 ```
-`Welcome to my bookstore!`
-
-```javascript
-curl http://localhost:5000/v1/books/
+Welcome to my bookstore!`
 ```
-`[{"book":"Kubernetes up and Running"},{"book":"Database Fundamentals"},{"book":"Let us C"},{"book":"docker up and running"}]`
+`curl http://localhost:5000/v1/books/`
 ```
-curl http://localhost:5000/v1/books/hightower
+[{"book":"Kubernetes up and Running"},{"book":"Database Fundamentals"},{"book":"Let us C"},{"book":"docker up and running"}]
 ```
-`{"author":"hightower","title":"Kubernetes up and Running"}`
-
-```javascript
-curl http://localhost:5000/v1/books/ritchie
+`curl http://localhost:5000/v1/books/hightower`
 ```
-`{"author":"ritchie","title":"Let us C"}`
-
-```javascript
-curl http://localhost:5000/v1/books/navathe
+{"author":"hightower","title":"Kubernetes up and Running"}
 ```
-`{"author":"navathe","title":"Database Fundamentals"}`
-
-```javascript
-
-curl -H "Content-Type: application/json" -X POST -d '{"author":"sean","title":"docker up and running"}' http://localhost:5000/v1/books/
+`curl http://localhost:5000/v1/books/ritchie`
 ```
-`{"author":"sean","book":"docker up and running","message":"Added book successfully"}`
+{"author":"ritchie","title":"Let us C"}
 
 
+`curl http://localhost:5000/v1/books/navathe`
+```
+{"author":"navathe","title":"Database Fundamentals"}
+```
+
+`curl -H "Content-Type: application/json" -X POST -d '{"author":"sean","title":"docker up and running"}' http://localhost:5000/v1/books/`
+```
+{"author":"sean","book":"docker up and running","message":"Added book successfully"}
+```
+
+
+`docker logs ea1efbaf9e2f`
+```
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: Do not use the development server in a production environment.
@@ -90,5 +87,5 @@ curl -H "Content-Type: application/json" -X POST -d '{"author":"sean","title":"d
 2021-09-28 15:27:27,571 INFO flask.app Thread-6 : list , iterating book list
 2021-09-28 15:27:27,572 INFO werkzeug Thread-6 : 172.17.0.1 - - [28/Sep/2021 15:27:27] "GET /v1/books/ HTTP/1.1" 200 -
 2021-09-28 15:27:31,847 INFO werkzeug Thread-7 : 172.17.0.1 - - [28/Sep/2021 15:27:31] "GET / HTTP/1.1" 200 
-
+```
 
