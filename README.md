@@ -32,9 +32,10 @@ ubuntu       18.04      54919e10a95d   4 weeks ago     63.1MB
 `docker run -d -p 5000:5000 flask-app`
 
 `docker ps`
+```
 CONTAINER ID   IMAGE       COMMAND             CREATED         STATUS         PORTS                                       NAMES
 ea1efbaf9e2f   flask-app   "python ./app.py"   9 minutes ago   Up 9 minutes   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   suspicious_wescoff
-
+```
 
 `curl http://localhost:5000`
 ```
@@ -51,8 +52,7 @@ Welcome to my bookstore!`
 `curl http://localhost:5000/v1/books/ritchie`
 ```
 {"author":"ritchie","title":"Let us C"}
-
-
+```
 `curl http://localhost:5000/v1/books/navathe`
 ```
 {"author":"navathe","title":"Database Fundamentals"}
@@ -62,8 +62,6 @@ Welcome to my bookstore!`
 ```
 {"author":"sean","book":"docker up and running","message":"Added book successfully"}
 ```
-
-
 `docker logs ea1efbaf9e2f`
 ```
  * Serving Flask app "app" (lazy loading)
