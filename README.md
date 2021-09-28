@@ -7,7 +7,7 @@ code()
 ### Build the docker image from Dockerfile ###
 docker build -t flask-app . 
 
-### Check Docker images on host ##
+### Check Docker images on host ###
 docker images
 REPOSITORY   TAG        IMAGE ID       CREATED         SIZE
 flask-app    latest     6204c64ac214   9 minutes ago   152MB
@@ -16,9 +16,9 @@ ubuntu       18.04      54919e10a95d   4 weeks ago     63.1MB
 
 ### Run docker image as a container ###
 
-docker run -p 5000:5000 flask-app
+`docker run -p 5000:5000 flask-app`
 
-
+```
  * Serving Flask app "app" (lazy loading)
  * Environment: production
    WARNING: Do not use the development server in a production environment.
@@ -27,7 +27,7 @@ docker run -p 5000:5000 flask-app
 2021-09-28 15:26:54,557 WARNING werkzeug MainThread :  * Running on all addresses.
    WARNING: This is a development server. Do not use it in a production deployment.
 2021-09-28 15:26:54,557 INFO werkzeug MainThread :  * Running on http://172.17.0.2:5000/ (Press CTRL+C to quit)
-
+```
 
 ```javascript
 docker run -d -p 5000:5000 flask-app
@@ -41,36 +41,32 @@ ea1efbaf9e2f   flask-app   "python ./app.py"   9 minutes ago   Up 9 minutes   0.
 ```javascript
 curl http://localhost:5000
 ```
-
-Welcome to my bookstore!
+`Welcome to my bookstore!`
 
 ```javascript
 curl http://localhost:5000/v1/books/
 ```
-[{"book":"Kubernetes up and Running"},{"book":"Database Fundamentals"},{"book":"Let us C"},{"book":"docker up and running"}]
-
+`[{"book":"Kubernetes up and Running"},{"book":"Database Fundamentals"},{"book":"Let us C"},{"book":"docker up and running"}]`
 ```
 curl http://localhost:5000/v1/books/hightower
 ```
-
-{"author":"hightower","title":"Kubernetes up and Running"}
+`{"author":"hightower","title":"Kubernetes up and Running"}`
 
 ```javascript
 curl http://localhost:5000/v1/books/ritchie
 ```
-{"author":"ritchie","title":"Let us C"}
+`{"author":"ritchie","title":"Let us C"}`
 
 ```javascript
-
 curl http://localhost:5000/v1/books/navathe
 ```
-{"author":"navathe","title":"Database Fundamentals"}
+`{"author":"navathe","title":"Database Fundamentals"}`
 
 ```javascript
 
 curl -H "Content-Type: application/json" -X POST -d '{"author":"sean","title":"docker up and running"}' http://localhost:5000/v1/books/
 ```
-{"author":"sean","book":"docker up and running","message":"Added book successfully"}
+`{"author":"sean","book":"docker up and running","message":"Added book successfully"}`
 
 
  * Serving Flask app "app" (lazy loading)
